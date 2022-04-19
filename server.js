@@ -13,6 +13,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 //for accecpting post Data
+app.get("/",(req,res)=>{
+    res.json({
+        name:'shiv',
+    })
+})
 
 app.use(bodyParser.json());
 
