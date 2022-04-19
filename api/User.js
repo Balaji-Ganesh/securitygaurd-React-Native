@@ -5,25 +5,56 @@ const User = require('./../models/User');
 
 const router = express.Router();
 
-
-//signin
-router.post('/signin',(req,res)=>{
-
+const users = new User({
+    name:'19BD1A0508',
 })
+users.save();
 
-//signup
-router.post('signup',(req,res)=>{
 
-    let {name,email,password} = req.body;
+// //getting student data
+router.get("/Search",(req,res)=>{
 
-    const users = new User({
-        name,
-        email,
-        password,
-    })
+    console.log(req.body.name);
 
-    users.save();
+    //seraching the data of the student in database
+//     User.find({name:req.body.name}).then(
+//         result =>{
 
+//             if(result.length)
+//             {
+//                 //add api to convert data into qr code
+
+//                 console.log(result);
+
+
+           
+
+// qr.toDataURL(url, (err, src) => {
+//     if (err) res.send("Error occured");
+  
+//     // Let us return the QR code image as our response and set it to be the source used in the webpage
+//     res.render("scan", { src });
+// });
+
+
+
+//             }
+
+//         }
+//     ).catch( (err)=>{
+
+//         console.log(err);
+//         res.json({
+//             status: "FAILED TO FIND STUDENT",
+//             message: "An error occured!!"
+//         })
+
+//     })
+
+
+    
+
+ 
 
 })
 module.exports = router;
