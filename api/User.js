@@ -14,9 +14,9 @@ users.save();
 // //getting student data
 router.get("/Search",(req,res)=>{
 
-    // console.log(req.body.name);
+    console.log(req.body.name);
 
-    //seraching the data of the student in database
+//     // seraching the data of the student in database
 //     User.find({name:req.body.name}).then(
 //         result =>{
 
@@ -25,6 +25,7 @@ router.get("/Search",(req,res)=>{
 //                 //add api to convert data into qr code
 
 //                 console.log(result);
+                  
 
 
            
@@ -51,6 +52,6 @@ router.get("/Search",(req,res)=>{
 
 //     })
 
-  res.send("hi");
+   res.send("hi");
 })
 module.exports = router;
