@@ -14,7 +14,7 @@ users.save();
 // //getting student data
 router.get("/Search",(req,res)=>{
 
-    console.log(req.body.name);
+    // console.log(req.body.name);
 
     //seraching the data of the student in database
 //     User.find({name:req.body.name}).then(
@@ -51,10 +51,6 @@ router.get("/Search",(req,res)=>{
 
 //     })
 
-
-    
-
- 
-
+  res.send("hi");
 })
 module.exports = router;
