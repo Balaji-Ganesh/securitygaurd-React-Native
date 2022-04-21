@@ -12,34 +12,34 @@ users.save();
 
 
 // //getting student data
-router.post("/Search", (req, res) => {
+router.post("/Search", async(req, res) => {
 
   // console.log(req.body.name);
 
   //     // seraching the data of the student in database
-  User.find({ name: req.body.data },(error,result)=>{
+  const result = await User.find({ name: req.body.data });
 
-    if(error)
-    {
-        res.json({
-                      Value:0,
-                      status: "FAILED TO FIND STUDENT",
-                      message: "An error occured!!"
-                  })
-    }
+  if(result.length > 0)
+  {
 
-     else {
-      
+    res.json({
+      status: "Success",
+      Value:1,
+    })
 
-      res.json({
+  }
+  else
+  {
 
-        status: "Success",
-        Value:1,
-
-
-
-      })
-    }
+    res.json({
+      Value:0,
+      status: "FAILED TO FIND STUDENT",
+      message: "An error occured!!"
   })
+
+  }
+
+    
+
       });
   module.exports = router;
