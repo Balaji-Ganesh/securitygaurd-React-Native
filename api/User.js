@@ -12,7 +12,7 @@ users.save();
 
 
 // //getting student data
-router.get("/Search",(req,res)=>{
+router.post("/Search",(req,res)=>{
 
     // console.log(req.body.name);
 
