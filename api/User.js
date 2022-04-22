@@ -32,8 +32,7 @@ router.post("/Search", async(req, res) => {
   {
 
     res.json({
-      Value:req.body.data,
-
+      Value:"fyghfdhgj",
       status: "FAILED TO FIND STUDENT",
       message: "An error occured!!"
   })
