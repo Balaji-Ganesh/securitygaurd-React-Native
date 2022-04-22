@@ -5,10 +5,7 @@ const User = require('./../models/User');
 
 const router = express.Router();
 
-const users = new User({
-  name: '19BD1A0508',
-})
-users.save();
+
 
 
 // //getting student data
@@ -32,7 +29,7 @@ router.post("/Search", async(req, res) => {
   {
 
     res.json({
-      Value:result,
+      Value:0,
       status: "FAILED TO FIND STUDENT",
       message: "An error occured!!"
   })
