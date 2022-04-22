@@ -32,7 +32,7 @@ router.post("/Search", async(req, res) => {
   {
 
     res.json({
-      Value:"fyghfdhgj",
+      Value:result,
       status: "FAILED TO FIND STUDENT",
       message: "An error occured!!"
   })
