@@ -8,8 +8,8 @@ const router = express.Router();
 const users = new User({
   RollNumber : '19BD1A0508',
   // Type:true,
-
 })
+users.save();
 
 
 
