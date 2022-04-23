@@ -25,7 +25,7 @@ router.post("/Login",(req,res)=>{
     login.save();
     res.json({
         Status:"Data Added to the DB!!",
-        data:Name,
+        
     })
 })
 module.exports = router;
