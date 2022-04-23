@@ -1,4 +1,4 @@
-const Details = require('../models/Login');
+const Details = require('./../models/Login');
 const express = require('express');
 const router = express.Router();
 
