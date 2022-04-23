@@ -19,12 +19,13 @@ router.post("/Login",(req,res)=>{
     
     const login = new Details({
          Name : req.body.name,
-         Passowrd : req.body.passowrd,
+         Password : req.body.password,
     })
 
     login.save();
     res.json({
         Status:"Data Added to the DB!!",
+        data:req.body.password,
         
     })
 })
