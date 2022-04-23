@@ -1,4 +1,4 @@
-const Login = require('../models/Login');
+const Details = require('../models/Login');
 const express = require('express');
 const app = express();
 
@@ -8,7 +8,7 @@ const app = express();
 app.post("/Login",(req,res)=>{
    
     const [Name,Passowrd] = req.body;
-    const login = new Login({
+    const login = new Details({
          Name,
          Passowrd,
     })
