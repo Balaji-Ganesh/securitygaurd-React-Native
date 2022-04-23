@@ -12,9 +12,9 @@ app.get("/Push",(req,res)=>{
 app.post("/Push",(req,res)=>{
 
     const users = new User({
-      RollNumber : req.body.RollNumber,
+      RollNumber : req.body.name,
     //   Time:req.body.Time,
-      Type:req.body.Type,
+      Type:req.body.value,
     })
 
     users.save();
