@@ -1,11 +1,11 @@
 const Details = require('../models/Login');
 const express = require('express');
-const app = express();
+const router = express.Router();
 
 
 
 
-app.post("/Login",(req,res)=>{
+router.post("/Login",(req,res)=>{
    
     const [Name,Passowrd] = req.body;
     const login = new Details({
@@ -18,7 +18,7 @@ app.post("/Login",(req,res)=>{
         Status:"Data Added to the DB!!"
     })
 })
-module.exports = app;
+module.exports = router;
 
 
 
