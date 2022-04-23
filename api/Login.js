@@ -7,13 +7,13 @@ const app = express();
 
 app.post("/Login",(req,res)=>{
    
-     const [Name,Passowrd] = req.body;
-    const login = new Login({
-         Name,
-         Passowrd,
-    })
+    // const [Name,Passowrd] = req.body;
+    // const login = new Login({
+    //      Name,
+    //      Passowrd,
+    // })
 
-    login.save();
+    // login.save();
     res.json({
         Status:"Data Added to the DB!!"
     })
