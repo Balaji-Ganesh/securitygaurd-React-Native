@@ -1,15 +1,21 @@
-// const { Router } = require('express');
+
 const express = require('express');
-const app = express();
+// const app = express();
 const User = require('./../models/User');
 
-const router = express();
+const router = express.Router();
+
+const users = new User({
+  RollNumber : '19BD1A0508',
+  // Type:true,
+
+})
 
 
 
 
 // //getting student data
-app.post("/Search", async(req, res) => {
+router.post("/Search", async(req, res) => {
 
   // console.log(req.body.name);
 
@@ -39,4 +45,4 @@ app.post("/Search", async(req, res) => {
     
 
       });
-  module.exports = app;
+  module.exports = router;

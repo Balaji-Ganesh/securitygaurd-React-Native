@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
     RollNumber:String,
-    Time:Date,
-    Type:Boolean,
+    // Time:Date,
+    // Type:Boolean,
 }) 
 
 const User = mongoose.model('User',UserSchema);
