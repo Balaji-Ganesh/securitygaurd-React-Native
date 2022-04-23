@@ -3,7 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get("/login",(req,res)=>{
+router.get("/Login",(req,res)=>{
 
     res.json({
         name:"shiv",
@@ -16,12 +16,12 @@ router.get("/login",(req,res)=>{
 router.post("/Login",(req,res)=>{
    
     const [Name,Passowrd] = req.body;
-    // const login = new Details({
-    //      Name,
-    //      Passowrd,
-    // })
+    const login = new Details({
+         Name,
+         Passowrd,
+    })
 
-    // login.save();
+    login.save();
     res.json({
         Status:"Data Added to the DB!!",
         data:Name,
