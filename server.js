@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 // app.use('/user',UserRoute);
 app.use('/',UserRoute);
 app.use('/',Login);
-// app.use('/',Push);
+app.use('/',Push);
 
 // app.use('')
 app.listen(port,()=>{
