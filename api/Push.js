@@ -13,7 +13,7 @@ app.post("/Push",(req,res)=>{
 
     const users = new User({
       RollNumber : req.body.RollNumber,
-      Time:req.body.Time,
+    //   Time:req.body.Time,
       Type:req.body.Type,
     })
 
