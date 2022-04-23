@@ -14,7 +14,7 @@ router.get("/Login",(req,res)=>{
 
 
 
-router.post("/Login",(req,res)=>{
+router.post("/Login",async(req,res)=>{
    
     
     const login = new Details({
@@ -22,10 +22,10 @@ router.post("/Login",(req,res)=>{
          Password : req.body.password,
     })
 
-    login.save();
+    const result = await login.save();
     res.json({
         Status:"Data Added to the DB!!",
-        value:1,
+        value:result,
         
     })
 })
