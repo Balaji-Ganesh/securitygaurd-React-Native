@@ -1,5 +1,6 @@
 const Details = require('./../models/Login');
 const express = require('express');
+const { rawListeners } = require('./Push');
 
 const router = express.Router();
 
@@ -15,10 +16,10 @@ router.get("/Login",(req,res)=>{
 
 router.post("/Login",(req,res)=>{
    
-    const [Name,Passowrd] = req.body;
+    
     const login = new Details({
-         Name,
-         Passowrd,
+         Name : req.body.name,
+         Passowrd : req.body.passowrd,
     })
 
     login.save();
