@@ -1,15 +1,15 @@
-const { Router } = require('express');
+// const { Router } = require('express');
 const express = require('express');
 const app = express();
 const User = require('./../models/User');
 
-const router = express.Router();
+const router = express();
 
 
 
 
 // //getting student data
-router.post("/Search", async(req, res) => {
+app.post("/Search", async(req, res) => {
 
   // console.log(req.body.name);
 
@@ -39,4 +39,4 @@ router.post("/Search", async(req, res) => {
     
 
       });
-  module.exports = router;
+  module.exports = app;

@@ -1,7 +1,9 @@
 //we create mongoose to communicate to mongoDB
 const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
-    name:String,
+    RollNumber:String,
+    Time:Date,
+    Type:Boolean,
 }) 
 
 const User = mongoose.model('User',UserSchema);
