@@ -19,6 +19,10 @@ app.post("/Push",(req,res)=>{
 
     users.save();
 
+    res.json({
+        status:"Roll Number push successfully!!",
+    })
+
 })
 module.exports = app;
 
