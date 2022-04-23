@@ -3,12 +3,7 @@ const express = require('express');
 const app = express();
 
 
-app.get("/Login",(req,res)=>{
-    res.json({
 
-        name:'Shinjkkjb',
-    })
-})
 
 app.post("/Login",(req,res)=>{
    
