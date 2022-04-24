@@ -12,7 +12,7 @@ app.get("/Push",(req,res)=>{
     })
 })
 
-app.post("/Push",(req,res)=>{
+app.post("/Push",async(req,res)=>{
 
     const users = new User({
       RollNumber : req.body.name,
