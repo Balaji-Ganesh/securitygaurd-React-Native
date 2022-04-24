@@ -5,7 +5,7 @@ require('./config/db')
 const express = require('express');
 const bodyParser =  require('body-parser');
 const { append } = require('express/lib/response');
- const cors = require('cors');
+ 
 
 const UserRoute = require('./api/User');
 const Login = require('./api/Login');
@@ -14,12 +14,9 @@ const { options } = require('./api/User');
 
 const app = express();
 
- app.use(cors());
+ 
 
-const corsOption = {
-    origin: '*',
-  optionsSuccessStatus: 200 // for some legacy browsers
-}
+
 
 const port = process.env.PORT || 3000;
 
