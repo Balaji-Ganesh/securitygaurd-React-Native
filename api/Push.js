@@ -18,10 +18,11 @@ app.post("/Push",(req,res)=>{
       Name:req.body.teacherName
     })
 
-    users.save();
+   const result = await  users.save();
 
     res.json({
         status:"Roll Number push successfully!!",
+        data:result,
     })
 
 })
