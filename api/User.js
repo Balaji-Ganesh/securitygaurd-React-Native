@@ -1,13 +1,12 @@
 
 const express = require('express');
-const cors = require('cors');
+
 
 // const app = express();
 const User = require('./../models/User');
 
 const router = express.Router();
 
-router.use(cors());
 
 // const users = new User({
 //   RollNumber : '19BD1A0508',
