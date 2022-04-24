@@ -1,8 +1,9 @@
 const Details = require('./../models/Login');
 const express = require('express');
-const { rawListeners } = require('./Push');
-
+const cors = require('cors');
 const router = express.Router();
+
+router.use(cors());
 
 router.get("/Login",(req,res)=>{
 
