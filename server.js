@@ -26,7 +26,7 @@ const port = process.env.PORT || 3000;
 
 
 // for accecpting post Data
-app.get("/",cors(corsOption),(req,res)=>{
+app.get("/",(req,res)=>{
     res.json({
         name:'shiv',
     })
@@ -37,9 +37,9 @@ app.use(bodyParser.json());
 
 //
 // app.use('/user',UserRoute);
-app.use('/',cors(corsOption),UserRoute);
-app.use('/',cors(corsOption),Login);
-app.use('/',cors(corsOption),Push);
+app.use('/',UserRoute);
+app.use('/',Login);
+app.use('/',Push);
 
 // app.use('')
 app.listen(port,()=>{
