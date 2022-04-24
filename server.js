@@ -6,13 +6,17 @@ const express = require('express');
 const bodyParser =  require('body-parser');
 const { append } = require('express/lib/response');
  
-
+const cors = require('cors');
 const UserRoute = require('./api/User');
 const Login = require('./api/Login');
 const Push = require('./api/Push');
 const { options } = require('./api/User');
 
 const app = express();
+
+app.use(cors({
+   origin:'http://localhost:19006',
+}))
 
  
 
