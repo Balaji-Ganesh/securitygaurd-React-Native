@@ -31,7 +31,7 @@ router.post("/Search", async(req, res) => {
     res.json({
       status: "Success",
       Value:1,
-      data : result
+      data : req.body.data
     })
 
   }
