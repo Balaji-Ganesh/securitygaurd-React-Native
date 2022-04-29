@@ -10,10 +10,10 @@ router.get("/Login1", (req, res) => {
 });
 
 router.post("/Login1", async (req, res) => {
-  const Findteacher = await Details.find({ Name: req.body.teachername });
+  // const Findteacher = await Details.find({ Name: req.body.teachername });
 
-  if(Findteacher.length > 0)
-  {
+  // if(Findteacher.length > 0)
+  // {
    const filter = { Name: req.body.teachername };
    const update = { Password: req.body.newpassword };
    let doc = await Details.findOneAndUpdate(filter, update, {
@@ -22,14 +22,14 @@ router.post("/Login1", async (req, res) => {
    console.log(doc);
 
 
-  }
-  else 
-  {
-    res.json({
-      Value:0,
-      Status:"Invalid Teacher!!"
-    })
-  }
+  // }
+  // else 
+  // {
+  //   res.json({
+  //     Value:0,
+  //     Status:"Invalid Teacher!!"
+  //   })
+  // }
   
 
   
