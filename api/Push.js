@@ -20,7 +20,7 @@ app.post("/Push",async(req,res)=>{
     {
         res.json({
 
-            value:0,
+            Value:0, //student already present
 
         })
 
@@ -39,7 +39,7 @@ app.post("/Push",async(req,res)=>{
 
             res.json({
               status: "Roll Number push successfully!!",
-              value:1,
+              Value:1, // new Student
             //   data: result,
             });
 
