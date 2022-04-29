@@ -10,7 +10,7 @@ const cors = require('cors');
 const UserRoute = require('./api/User');
 const Login = require('./api/Login');
 const Push = require('./api/Push');
-const Change = require('./api/Changepassword');
+const Change = require('./api/Login1');
 
 const { options } = require('./api/User');
 
