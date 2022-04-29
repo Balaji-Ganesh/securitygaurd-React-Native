@@ -10,6 +10,7 @@ const cors = require('cors');
 const UserRoute = require('./api/User');
 const Login = require('./api/Login');
 const Push = require('./api/Push');
+const Changepass = require('./api/ChangePass');
 const { options } = require('./api/User');
 
 const app = express();
@@ -41,6 +42,7 @@ app.use(bodyParser.json());
 app.use('/',UserRoute);
 app.use('/',Login);
 app.use('/',Push);
+app.use('/',Changepass);
 
 // app.use('')
 app.listen(port,()=>{

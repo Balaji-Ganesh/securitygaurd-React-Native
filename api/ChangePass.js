@@ -58,5 +58,6 @@ await Details.updateOne(
 
 
 });
+module.exports = app;
 
 
