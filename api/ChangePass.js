@@ -10,49 +10,54 @@ const UserName = req.body.teachername;
 const oldPassword = req.body.oldpassword;
 const newpassword = req.body.newpassword;
 
-var query = { Name : req.body.Username,Password : oldPassword};
+var query = { Name : UserName,Password : oldPassword};
+
+res.json({
+
+  data:"data got it!!",
+})
 
 
-await Details.updateOne(
+// await Details.updateOne(
   
-    query,
+//     query,
   
-  { Password: newpassword },
-  (error,result)=>{
+//   { Password: newpassword },
+//   (error,result)=>{
 
-    if(error){
-      res.json({
+//     if(error){
+//       res.json({
 
-        status:400,
-        Data:"error",
-      })
-    }
+//         status:400,
+//         Data:"error",
+//       })
+//     }
    
 
-    if(result!=null){
+//     if(result!=null){
 
-      res.json({
+//       res.json({
 
-       status : 200,
-       data:"Updated successsfully!!"
+//        status : 200,
+//        data:"Updated successsfully!!"
 
-      })
-    }
+//       })
+//     }
    
 
-    else
-   {
-     res.json({
-       status: 400,
-       Data: "Unable to update data",
-     });
-   }
+//     else
+//    {
+//      res.json({
+//        status: 400,
+//        Data: "Unable to update data",
+//      });
+//    }
 
 
 
-  }
+//   }
 
-);
+// );
 
 
 
