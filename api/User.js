@@ -23,7 +23,7 @@ router.post("/Search", async(req, res) => {
   // console.log(req.body.name);
 
   //     // seraching the data of the student in database
-  const result = await User.find({ name: req.body.data });
+  const result = await User.find({ RollNumber: req.body.data });
 
   if(result.length > 0)
   {
@@ -31,6 +31,7 @@ router.post("/Search", async(req, res) => {
     res.json({
       status: "Success",
       Value:1,
+      data : req.body.data
     })
 
   }
