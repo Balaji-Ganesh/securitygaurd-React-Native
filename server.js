@@ -14,11 +14,14 @@ const Changepass = require('./api/ChangePass');
 const { options } = require('./api/User');
 
 const app = express();
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
 
 app.use(
-  cors({
-    origin: "http://localhost:19006",
-  })
+  cors(corsOptions)
 );
 
  
