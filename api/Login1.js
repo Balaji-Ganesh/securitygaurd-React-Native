@@ -14,11 +14,12 @@ router.post("/Login1", async (req, res) => {
 
   if(Findteacher.length > 0)
   {
-    const newpassword = req.body.newpassword;
-   const k = await Findteacher.updateOne({ $set: { Password: newpassword } });
-   console.log(k);
-   k.save();
-
+   const filter = { Name: req.body.teachername };
+   const update = { Password: req.body.newpassword };
+   let doc = await Details.findOneAndUpdate(filter, update, {
+     new: true,
+   });
+   console.log(doc);
 
 
   }
