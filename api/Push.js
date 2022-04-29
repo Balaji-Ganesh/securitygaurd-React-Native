@@ -14,19 +14,37 @@ app.get("/Push",(req,res)=>{
 
 app.post("/Push",async(req,res)=>{
 
-    const users = new User({
-      RollNumber : req.body.name,
-      Time:req.body.date,
-      Type:req.body.value,
-      Name:req.body.teacherName
-    })
+    const findingDetails = await User.find({ RollNumber: req.body.name });
 
-   const result = await  users.save();
+    if(findingDetails.length > 0)
+    {
+        res.json({
 
-    res.json({
-        status:"Roll Number push successfully!!",
-        data:result,
-    })
+            value:0,
+
+        })
+
+    }
+
+     else{
+
+            const users = new User({
+              RollNumber: req.body.name,
+              Time: req.body.date,
+              Type: req.body.value,
+              Name: req.body.teacherName,
+            });
+
+            const result = await users.save();
+
+            res.json({
+              status: "Roll Number push successfully!!",
+              value:1,
+            //   data: result,
+            });
+
+     }
+
 
 })
 module.exports = app;
