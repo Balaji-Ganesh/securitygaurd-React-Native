@@ -26,7 +26,7 @@ router.post("/Login",async(req,res)=>{
     const result = await login.save();
     res.json({
         Status:"Data Added to the DB!!",
-        value:result.name,
+        value:result,
         
     })
 })
