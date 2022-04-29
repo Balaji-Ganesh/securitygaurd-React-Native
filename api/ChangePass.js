@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const Details = require('../models/Login');
 
+app.get("/ChangePassword",(res,res)=>{
+  res.setEncoding("hii");
+})
+
 app.post("/ChangePassword",async(req,res)=>{
 
 // const Tname = req.body.name;
