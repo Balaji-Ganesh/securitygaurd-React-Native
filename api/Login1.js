@@ -14,10 +14,8 @@ router.post("/Login1", async (req, res) => {
 
   if(Findteacher.length > 0)
   {
-    const oldpassword = req.body.oldpassword;
     const newpassword = req.body.newpassword;
-
-     console.log(Findteacher);
+   const k = await Findteacher.updateOne({ $set: { Password: newpassword } });
 
 
   }
