@@ -17,10 +17,7 @@ router.post("/Login1", async (req, res) => {
     const oldpassword = req.body.oldpassword;
     const newpassword = req.body.newpassword;
 
-     res.json({
-       Status: "Data Added to the DB!!",
-       Value: 1,
-     });
+     console.log(Findteacher);
 
 
   }
