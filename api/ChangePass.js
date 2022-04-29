@@ -3,7 +3,7 @@ const app = express();
 const Details = require('../models/Login');
 
 app.get("/ChangePassword",(res,res)=>{
-  res.setEncoding("hii");
+  res.send("hii");
 })
 
 app.post("/ChangePassword",async(req,res)=>{
