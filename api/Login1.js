@@ -10,15 +10,30 @@ router.get("/Login1", (req, res) => {
 });
 
 router.post("/Login1", async (req, res) => {
-  const login = new Details({
-    Name: req.body.name,
-    Password: req.body.password,
-  });
+  const Findteacher = await Details.find({ Name: req.body.teachername });
 
-  const result = await login.save();
-  res.json({
-    Status: "Data Added to the DB!!",
-    value: result,
-  });
+  if(Findteacher.length > 0)
+  {
+    const oldpassword = req.body.oldpassword;
+    const newpassword = req.body.newpassword;
+
+     res.json({
+       Status: "Data Added to the DB!!",
+       Value: 1,
+     });
+
+
+  }
+  else 
+  {
+    res.json({
+      Value:0,
+      Status:"Invalid Teacher!!"
+    })
+  }
+  
+
+  
+ 
 });
 module.exports = router;
