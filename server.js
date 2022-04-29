@@ -10,19 +10,13 @@ const cors = require('cors');
 const UserRoute = require('./api/User');
 const Login = require('./api/Login');
 const Push = require('./api/Push');
-const Changepass = require('./api/ChangePass');
 const { options } = require('./api/User');
 
 const app = express();
-const corsOptions = {
-  origin: "*",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
 
-app.use(
-  cors(corsOptions)
-);
+app.use(cors({
+   origin:'http://localhost:19006',
+}))
 
  
 
@@ -47,7 +41,6 @@ app.use(bodyParser.json());
 app.use('/',UserRoute);
 app.use('/',Login);
 app.use('/',Push);
-app.use('/',Changepass);
 
 // app.use('')
 app.listen(port,()=>{
