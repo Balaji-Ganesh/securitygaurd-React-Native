@@ -10,11 +10,11 @@ app.post("/ChangePassword",async(req,res)=>{
 
 // const Tname = req.body.name;
 
-const UserName = req.body.teachername;
-const oldPassword = req.body.oldpassword;
-const newpassword = req.body.newpassword;
+// const UserName = req.body.teachername;
+// const oldPassword = req.body.oldpassword;
+// const newpassword = req.body.newpassword;
 
-var query = { Name : UserName,Password : oldPassword};
+// var query = { Name : UserName,Password : oldPassword};
 
 res.json({
 
