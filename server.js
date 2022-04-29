@@ -15,9 +15,11 @@ const { options } = require('./api/User');
 
 const app = express();
 
-app.use(cors({
-   origin:'*',
-}))
+app.use(
+  cors({
+    origin: "http://localhost:19006",
+  })
+);
 
  
 
