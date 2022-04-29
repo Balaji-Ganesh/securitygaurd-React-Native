@@ -1,5 +1,6 @@
 const Details = require('./../models/Login');
 const express = require('express');
+const bcrypt = require("bcrypt");
 
 const router = express.Router();
 
@@ -17,10 +18,10 @@ router.get("/Login",(req,res)=>{
 
 router.post("/Login",async(req,res)=>{
    
-    
+     const securePassword = await bcrypt.hash(req.body.password, 10);
     const login = new Details({
          Name : req.body.name,
-         Password : req.body.password,
+         Password : securePassword,
     })
 
     const result = await login.save();
