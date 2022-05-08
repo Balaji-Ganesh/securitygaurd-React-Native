@@ -1,12 +1,12 @@
-const Details = require('./../models/Login');
 const express = require('express');
 const bcrypt = require("bcrypt");
 
-const router = express.Router();
+const app = express();
+const Details = require("./../models/Login");
 
 
 
-router.get("/Login",(req,res)=>{
+app.get("/Login",(req,res)=>{
 
     res.json({
         name:"shiv",
@@ -16,7 +16,7 @@ router.get("/Login",(req,res)=>{
 
 
 
-router.post("/Login",async(req,res)=>{
+app.post("/Login",async(req,res)=>{
 
 //    const data = await Details.find({Name:req.body.name});
 //    console.log(data);
@@ -55,7 +55,7 @@ router.post("/Login",async(req,res)=>{
         
     })
 })
-module.exports = router;
+module.exports = app;
 
 
 
