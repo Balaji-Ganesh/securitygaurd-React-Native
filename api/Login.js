@@ -25,7 +25,7 @@ router.post("/Login",async(req,res)=>{
 
 //     const resu = await bcrypt.compare(userpassword, hashpassword);
 
-    if(data.length > 1)
+    if(data.length > 0)
     {
        res.json({
          Value: 1,
