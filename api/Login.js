@@ -20,12 +20,12 @@ router.post("/Login",async(req,res)=>{
 
    const data = await Details.find({Name:req.body.name});
    console.log(data);
-   const hashpassword = data[0].Password;
-   const userpassword = req.body.password;
+//    const hashpassword = data[0].Password;
+//    const userpassword = req.body.password;
 
-    const resu = await bcrypt.compare(userpassword, hashpassword);
+    // const resu = await bcrypt.compare(userpassword, hashpassword);
 
-    if(data.length > 1 && resu)
+    if(data.length > 1)
     {
        res.json({
          Value: 1,
