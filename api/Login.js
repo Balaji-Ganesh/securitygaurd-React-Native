@@ -19,6 +19,7 @@ router.get("/Login",(req,res)=>{
 router.post("/Login",async(req,res)=>{
 
    const data = await Details.find({Name:req.body.name});
+   console.log(data);
    const hashpassword = data[0].Password;
    const userpassword = req.body.password;
 
