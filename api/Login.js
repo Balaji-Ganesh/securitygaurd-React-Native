@@ -25,20 +25,20 @@ router.post("/Login",async(req,res)=>{
 
     // const resu = await bcrypt.compare(userpassword, hashpassword);
 
-    if(data.length > 1)
-    {
-       res.json({
-         Value: 1,
-         Status:"Details exist!",
-       }); 
+    // if(data.length > 1)
+    // {
+    //    res.json({
+    //      Value: 1,
+    //      Status:"Details exist!",
+    //    }); 
 
-    }
-    else{
-        res.json({
-            Value:0,
-            Status:"Teacher not exist!!",
-        })
-    }
+    // }
+    // else{
+    //     res.json({
+    //         Value:0,
+    //         Status:"Teacher not exist!!",
+    //     })
+    // }
 
 
    
