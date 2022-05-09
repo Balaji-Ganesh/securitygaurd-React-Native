@@ -25,7 +25,6 @@ app.post("/Push", async (req, res) => {
          RollNumber: name,
          Time: date,
          Type: value,
-
          Name: teacherName,
          Reason:reason
        });
