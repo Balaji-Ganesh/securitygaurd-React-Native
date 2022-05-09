@@ -45,17 +45,17 @@ app.post("/Push", async (req, res) => {
   //     .get("https://gatepassapplication.herokuapp.com/api/permission/")
   //     .then((msg) => console.log(msg))
   //     .catch((error) => console.log("error: Rreason: " + error));
-  axios
-    .post("https://gatepassapplication.herokuapp.com/api/permission/", {
-      studentId: name,
-      reason: reason,
-      passMode: value,
-      permissionStatus: (value == 1),
-      facultyId: teacherName,
-      grantedAt: date,
-    })
-    .then((msg) => console.log("publish to API status: " + msg))
-    .catch((error) => console.log("PUSH to other API error. Reason: " + error));
+  // axios
+  //   .post("https://gatepassapplication.herokuapp.com/api/permission/", {
+  //     studentId: name,
+  //     reason: reason,
+  //     passMode: value,
+  //     permissionStatus: (value == 1),
+  //     facultyId: teacherName,
+  //     grantedAt: date,
+  //   })
+  //   .then((msg) => console.log("publish to API status: " + msg))
+  //   .catch((error) => console.log("PUSH to other API error. Reason: " + error));
   //// ends here...
  
 });
