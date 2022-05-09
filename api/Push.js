@@ -38,7 +38,7 @@ app.post("/Push", async (req, res) => {
  
 
  
-  / to push also to another API... starts here..
+  // / to push also to anothyer API... starts here..
     console.log(name + ", " + date + ", ");
     console.log("Sending msg to another API");
     axios
