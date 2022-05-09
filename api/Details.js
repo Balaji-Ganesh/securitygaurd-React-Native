@@ -62,3 +62,21 @@ router.put("/:id", async (request, response) => {
   }
 });
 
+// Deletion....
+router.delete("/:id", async (request, response) => {
+  const user = await Details.findById(request.params.id);
+  // if (user.username === request.body.username) {
+  // Delete the user..
+  try {
+    //await Permission.findByIdAndDelete(request.params.id); -- or alternatively like below..
+    await user.delete();
+    console.log("[SUCCESS] User deleted successfully.");
+    response.status(200).json("User deleted successfully");
+  } catch (error) {
+    console.error("[ERROR] User deletion error.");
+    response
+      .status(500)
+      .json("User deletion failed. Reason: Received invalid userId");
+  }
+});
+
