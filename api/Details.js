@@ -14,11 +14,10 @@ router.post("/", async (request, response) => {
     const hashedPwd = await bcrypt.hash(defaultPwd, saltRounds);
     // Go for creation of the new user..
     const newUser = new Details({
-      id: request.body.id,
       password: hashedPwd,
-      name: request.body.name,
+      Name: request.body.name,
       role: request.body.role,
-      profilePicture: "", // currently no use. May be in future.
+      //   profilePicture: "", // currently no use. May be in future.
     });
 
     // Save the new user..
