@@ -1,5 +1,6 @@
 const Details = require("./../models/Login");
 const express = require("express");
+const bcrypt = require("bcrypt");
 
 const router = express.Router();
 
@@ -24,12 +25,12 @@ router.post("/Login", async (req, res) => {
 });
 
 // for getting a existing user...(for authentication purpose) based on
-router.post("/authenticate", async (request, response) => {
+router.post("/api/authenticate", async (request, response) => {
+    console.log(request.body)
   try {
     //Fetch the credentials from the database..
     const userCredentials = await Details.findOne({
-      id: request.body.Name,
-      role: request.body.role, // use as filter
+      Name: request.body.Name,
     });
     !userCredentials &&
       response.status(400).json("Incorrect Credentials, Please try again..!");
@@ -37,7 +38,7 @@ router.post("/authenticate", async (request, response) => {
     // validate the password -- on successful user found..
     const validationStatus = bcrypt.compare(
       request.body.password,
-      userCredentials.password
+      userCredentials.Password
     );
     !validationStatus &&
       response.status(400).json("Incorrect credentials, Please try again.!");
