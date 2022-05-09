@@ -48,7 +48,7 @@ app.post("/Push", async (req, res) => {
   axios
     .post("https://gatepassapplication.herokuapp.com/api/permission/", {
       studentId: name,
-      reason: "--",
+      reason: reason,
       passMode: value,
       permissionStatus: (value == 1),
       facultyId: teacherName,
