@@ -1,12 +1,9 @@
-
-const express = require('express');
-
+const express = require("express");
 
 // const app = express();
-const User = require('./../models/User');
+const User = require("./../models/User");
 
 const router = express.Router();
-
 
 // const users = new User({
 //   RollNumber : '19BD1A0508',
@@ -14,39 +11,25 @@ const router = express.Router();
 // })
 // users.save();
 
-
-
-
 // //getting student data
-router.post("/Search", async(req, res) => {
-
+router.post("/Search", async (req, res) => {
   // console.log(req.body.name);
 
   //     // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.body.data });
 
-  if(result.length > 0)
-  {
-
+  if (result.length > 0) {
     res.json({
       status: "Success",
-      Value:1,
-      // data : req.body.data
-    })
-
-  }
-  else
-  {
-
+      Value: 1,
+      data: req.body.data,
+    });
+  } else {
     res.json({
-      Value:0,
+      Value: 0,
       status: "FAILED TO FIND STUDENT",
-      message: "An error occured!!"
-  })
-
+      message: "An error occured!!",
+    });
   }
-
-    
-
-      });
-  module.exports = router;
+});
+module.exports = router;
