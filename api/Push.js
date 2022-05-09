@@ -26,7 +26,7 @@ app.post("/Push", async (req, res) => {
          Time: date,
          Type: value,
          Name: teacherName,
-         Reason:reason
+         reason:reason
        });
         const result = await users.save();
          res.json({
@@ -38,25 +38,25 @@ app.post("/Push", async (req, res) => {
  
 
  
-  /// to push also to another API... starts here..
-  //   console.log(name + ", " + date + ", ");
-  //   console.log("Sending msg to another API");
-  //   axios
-  //     .get("https://gatepassapplication.herokuapp.com/api/permission/")
-  //     .then((msg) => console.log(msg))
-  //     .catch((error) => console.log("error: Rreason: " + error));
-  // axios
-  //   .post("https://gatepassapplication.herokuapp.com/api/permission/", {
-  //     studentId: name,
-  //     reason: reason,
-  //     passMode: value,
-  //     permissionStatus: (value == 1),
-  //     facultyId: teacherName,
-  //     grantedAt: date,
-  //   })
-  //   .then((msg) => console.log("publish to API status: " + msg))
-  //   .catch((error) => console.log("PUSH to other API error. Reason: " + error));
-  //// ends here...
+  / to push also to another API... starts here..
+    console.log(name + ", " + date + ", ");
+    console.log("Sending msg to another API");
+    axios
+      .get("https://gatepassapplication.herokuapp.com/api/permission/")
+      .then((msg) => console.log(msg))
+      .catch((error) => console.log("error: Rreason: " + error));
+  axios
+    .post("https://gatepassapplication.herokuapp.com/api/permission/", {
+      studentId: name,
+      reason: reason,
+      passMode: value,
+      permissionStatus: (value == 1),
+      facultyId: teacherName,
+      grantedAt: date,
+    })
+    .then((msg) => console.log("publish to API status: " + msg))
+    .catch((error) => console.log("PUSH to other API error. Reason: " + error));
+  // ends here...
  
 });
 
