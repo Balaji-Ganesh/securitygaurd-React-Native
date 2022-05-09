@@ -1,25 +1,32 @@
 //mongodb file
 require("./config/db");
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const { append } = require("express/lib/response");
 
-const cors = require("cors");
 
-const UserRoute = require("./api/User");
-const Login = require("./api/Login");
-const Push = require("./api/Push");
+
+const express = require('express');
+const bodyParser =  require('body-parser');
+const { append } = require('express/lib/response');
+ 
+const cors = require('cors');
+const UserRoute = require('./api/User');
+const Login = require('./api/Login');
+const Push = require('./api/Push');
+const Change = require('./api/Login1');
 const DetailsRoute = require("./api/Details");
-const { options } = require("./api/User");
+
+const { options } = require('./api/User');
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost:19006",
-  })
-);
+app.use(cors({
+   origin:'*',
+}))
+
+ 
+
+
+
 
 const port = process.env.PORT || 3000;
 
@@ -46,10 +53,17 @@ app.use((req, res, next) => {
 });
 //
 // app.use('/user',UserRoute);
+
+
+
+
+app.use('/',UserRoute);
+app.use('/',Login);
+app.use('/',Push);
+app.use('/',Change);
 app.use("/api/Details", DetailsRoute);
-app.use("/", UserRoute);
-app.use("/", Login);
-app.use("/", Push);
+
+
 
 // app.use('')
 app.listen(port, () => {

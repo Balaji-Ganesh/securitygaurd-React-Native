@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const UserSchema = mongoose.Schema(
   {
+
     RollNumber: {
       type: String,
       required: true,
@@ -25,6 +26,7 @@ const UserSchema = mongoose.Schema(
     },
   },
   { timestamps: true }
+
 );
 
 const User = mongoose.model("User", UserSchema);
