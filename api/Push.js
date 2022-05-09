@@ -38,8 +38,8 @@ app.post("/Push", async (req, res) => {
  
 
  
-  // / to push also to anothyer API... starts here..
-    console.log(name + ", " + date + ", ");
+  // / to push also to another API... starts here..
+    // console.log(name + ", " + date + ", ");
     console.log("Sending msg to another API");
     axios
       .get("https://gatepassapplication.herokuapp.com/api/permission/")
