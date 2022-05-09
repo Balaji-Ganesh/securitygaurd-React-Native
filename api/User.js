@@ -45,15 +45,15 @@ router.post("/Search", async (req, res) => {
 });
 
 // Get all the permissions.. -- for ADMIN.
-router.get("/", async (request, response) => {
-  let posts;
+router.get("/permissions", async (request, response) => {
+  let permissions;
   try {
-    // Get all the posts..
-    posts = await Permission.find();
+    // Get all the permissions..
+    permissions = await User.find();
 
-    // Send the retrieved (filtered) posts..
+    // Send the retrieved (filtered) permissions..
     console.info("[SUCCESS] Multiple permissions retrieved successfully");
-    response.status(200).json(posts);
+    response.status(200).json(permissions);
   } catch (error) {
     console.error("[ERROR] Error in retrieving all permissions.");
     response.status(500).json("Sorry, Unable to retrieve permissions.");
