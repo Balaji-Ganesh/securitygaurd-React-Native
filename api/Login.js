@@ -27,7 +27,7 @@ router.post("/Login", async (req, res) => {
 router.post("/authenticate", async (request, response) => {
   try {
     //Fetch the credentials from the database..
-    const userCredentials = await User.findOne({
+    const userCredentials = await Details.findOne({
       id: request.body.Name,
       role: request.body.role, // use as filter
     });
@@ -52,6 +52,5 @@ router.post("/authenticate", async (request, response) => {
     response.status(500).json();
   }
 });
-
 
 module.exports = router;
