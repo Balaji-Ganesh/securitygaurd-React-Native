@@ -80,3 +80,19 @@ router.delete("/:id", async (request, response) => {
   }
 });
 
+// Get all the users.. for Admin (in dashboard)
+router.get("/", async (request, response) => {
+  let users;
+  try {
+    users = await Details.find({}, { password: 0 }); // dont get password
+
+    // Send the retrieved (filtered) users..
+    console.info("[SUCCESS] Multiple users data retrieved successfully");
+    response.status(200).json(users);
+  } catch (error) {
+    console.error("[ERROR] Error in retrieving all users.");
+    response.status(500).json("Sorry, Unable to retrieve users.");
+  }
+});
+
+module.exports = router;
