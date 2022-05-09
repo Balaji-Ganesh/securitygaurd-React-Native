@@ -32,6 +32,18 @@ app.get("/", (req, res) => {
 
 app.use(bodyParser.json());
 
+/** Few configurations.. -- Setting Middlewares..*/
+// CORS.. error fix: https://www.freecodecamp.org/news/access-control-allow-origin-header-explained/
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  // res.setHeader("Access-Control-Allow-Origin", "https://yoursite.com");  // to allow only for specific browser..
+  res.setHeader("Access-Control-Allow-Origin", "*"); // to allow from any browser
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 //
 // app.use('/user',UserRoute);
 app.use("/api/Details", DetailsRoute);
