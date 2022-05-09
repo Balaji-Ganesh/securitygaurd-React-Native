@@ -10,7 +10,7 @@ const cors = require("cors");
 const UserRoute = require("./api/User");
 const Login = require("./api/Login");
 const Push = require("./api/Push");
-const DetailsRoute = require("/api/Details");
+const DetailsRoute = require("./api/Details");
 const { options } = require("./api/User");
 
 const app = express();
@@ -34,10 +34,10 @@ app.use(bodyParser.json());
 
 //
 // app.use('/user',UserRoute);
+app.use("/api/Details", DetailsRoute);
 app.use("/", UserRoute);
 app.use("/", Login);
 app.use("/", Push);
-app.use("/api/Details", DetailsRoute);
 
 // app.use('')
 app.listen(port, () => {
