@@ -15,14 +15,25 @@ const router = express.Router();
 router.post("/Search", async (req, res) => {
   // console.log(req.body.name);
 
-  //     // seraching the data of the student in database
+  // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.body.data });
 
   if (result.length > 0) {
+    // Update the "Type", after scanned (for GatePass only)
+    if (result.Type == 1) {
+      // 1: GatePass, 0: LunhcPass, -1: AlreadyScanned/Expired
+      const filter = { RollNumber: req.body.data };
+      const update = { Type: -1 }; // -1 to hold the expiration.
+
+      // `doc` is the document _before_ `update` was applied
+      await User.findOneAndUpdate(filter, update);
+      console.log(
+        "[INFO] Changed expiration of permission (1 -> -1) Successfully"
+      );
+    }
     res.json({
       status: "Success",
       Value: 1,
-      // data : req.body.data
     });
   } else {
     res.json({
