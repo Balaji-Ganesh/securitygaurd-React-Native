@@ -50,7 +50,7 @@ app.post("/Push", async (req, res) => {
       studentId: name,
       reason: "--",
       passMode: value,
-      permissionStatus: value,
+      permissionStatus: (value == 1),
       facultyId: teacherName,
       grantedAt: date,
     })

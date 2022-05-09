@@ -5,11 +5,6 @@ const User = require("./../models/User");
 
 const router = express.Router();
 
-// const users = new User({
-//   RollNumber : '19BD1A0508',
-//   // Type:true,
-// })
-// users.save();
 
 // //getting student data
 router.post("/Search", async (req, res) => {
@@ -32,4 +27,64 @@ router.post("/Search", async (req, res) => {
     });
   }
 });
+
+
+// //getting SINGLE student data <-- gate keeper requests on this route..
+router.post("/Validate/:rollNo", async (req, res) => {
+  // console.log(req.body.name);
+
+  // seraching the data of the student in database
+  const result = await User.find({ RollNumber: req.params.rollNo });
+
+  if (result.length > 0) {
+    // console.log(result);
+    // Update the "Type", after scanned (for GatePass only)
+    if (result[0].Type == 1) {
+      // 1: GatePass, 0: LunchPass, -1: AlreadyScanned/Expired
+      const filter = { RollNumber: req.body.data };
+      const update = { Type: -1 }; // -1 to hold the expiration.
+
+      // `doc` is the document _before_ `update` was applied
+      await User.findOneAndUpdate(filter, update);
+      console.log(
+        "[INFO] Changed expiration of permission (1 -> -1) Successfully"
+      );
+    }
+    console.log(
+      "[INFO] Permission retrieved successfully for RollNumber: " +
+        req.params.rollNo
+    );
+    res.status(200).json({
+      RollNumber: result[0].RollNumber,
+      facultyId: result[0].Name,
+      Type: result[0].Type,
+    });
+  } else {
+    console.log(
+      "[ERROR] Permission retrieval failed for RollNumber: " + req.params.rollNo
+    );
+    res.status(404).json({
+      message:
+        "No such permission found with that RollNumber: " + req.params.rollNo,
+    });
+  }
+});
+
+// Get all the permissions.. -- for ADMIN.
+router.get("/permissions", async (request, response) => {
+  let permissions;
+  try {
+    // Get all the permissions..
+    permissions = await User.find();
+
+    // Send the retrieved (filtered) permissions..
+    console.info("[SUCCESS] Multiple permissions retrieved successfully");
+    response.status(200).json(permissions);
+  } catch (error) {
+    console.error("[ERROR] Error in retrieving all permissions.");
+    response.status(500).json("Sorry, Unable to retrieve permissions.");
+  }
+});
+
+
 module.exports = router;
