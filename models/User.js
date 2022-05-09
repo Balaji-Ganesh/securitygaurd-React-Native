@@ -9,7 +9,7 @@ const UserSchema = mongoose.Schema(
     Reason:String,
   },
   {
-    timestamps: True,
+    timestamps: true,
   }
 );
 
