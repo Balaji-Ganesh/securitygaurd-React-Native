@@ -41,3 +41,24 @@ router.post("/", async (request, response) => {
   }
 });
 
+// Updation..
+router.put("/:id", async (request, response) => {
+  // Small validation..
+
+  console.log("[INFO] Received update request for id: ", request.params.id);
+  try {
+    // Get the user..
+    const updatedUserDetails = await Details.findByIdAndUpdate(
+      request.params.id,
+      {
+        $set: request.body,
+      }
+      // { new: true }
+    );
+    console.log("[SUCCESS] User updated successfully");
+    response.status(200).json(updatedUserDetails);
+  } catch (error) {
+    console.error("[ERROR] User updation failed. Error: " + error);
+  }
+});
+
