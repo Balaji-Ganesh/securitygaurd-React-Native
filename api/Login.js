@@ -16,34 +16,34 @@ router.get("/Login", (req, res) => {
 
 
 // for getting a existing user...(for authentication purpose) based on
-// router.post("/api/authenticate", async (request, response) => {
-//     console.log(request.body)
-//   try {
-//     //Fetch the credentials from the database..
-//     const userCredentials = await Details.findOne({
-//       Name: request.body.Name,
-//     });
-//     !userCredentials &&
-//       response.status(400).json("Incorrect Credentials, Please try again..!");
+router.post("/api/authenticate", async (request, response) => {
+    console.log(request.body)
+  try {
+    //Fetch the credentials from the database..
+    const userCredentials = await Details.findOne({
+      Name: request.body.Name,
+    });
+    !userCredentials &&
+      response.status(400).json("Incorrect Credentials, Please try again..!");
 
-//     // validate the password -- on successful user found..
-//     const validationStatus = bcrypt.compare(
-//       request.body.password,
-//       userCredentials.Password
-//     );
-//     !validationStatus &&
-//       response.status(400).json("Incorrect credentials, Please try again.!");
+    // validate the password -- on successful user found..
+    const validationStatus = bcrypt.compare(
+      request.body.password,
+      userCredentials.Password
+    );
+    !validationStatus &&
+      response.status(400).json("Incorrect credentials, Please try again.!");
 
-//     console.log("[INFO] user login request served successfully.");
-//     // On successful password validation..
-//     // Pullout the password (Preventing the password to be leaked outside..)
-//     const { password, ...otherDetails } = userCredentials._doc;
-//     response.status(200).json(otherDetails);
-//   } catch (error) {
-//     console.log("[ERROR] Login failed. Error: " + error);
-//     response.status(500).json();
-//   }
-// });
+    console.log("[INFO] user login request served successfully.");
+    // On successful password validation..
+    // Pullout the password (Preventing the password to be leaked outside..)
+    const { password, ...otherDetails } = userCredentials._doc;
+    response.status(200).json(otherDetails);
+  } catch (error) {
+    console.log("[ERROR] Login failed. Error: " + error);
+    response.status(500).json();
+  }
+});
 
 
 
