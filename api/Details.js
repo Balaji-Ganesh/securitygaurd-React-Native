@@ -13,8 +13,9 @@ router.post("/", async (request, response) => {
     const defaultPwd = "GatePassApplication";
     const hashedPwd = await bcrypt.hash(defaultPwd, saltRounds);
     // Go for creation of the new user..
+    console.log(request.body);
     const newUser = new Details({
-      Name: request.body.name,
+      Name: request.body.Name,
       role: request.body.role,
       Password: hashedPwd,
       //   profilePicture: "", // currently no use. May be in future.
