@@ -19,7 +19,7 @@ router.post("/", async (request, response) => {
       role: request.body.role,
       //   profilePicture: "", // currently no use. May be in future.
     });
-
+ 
     // Save the new user..
     const user = await newUser.save();
     // After successful save..!!
