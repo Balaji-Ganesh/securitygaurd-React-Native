@@ -10,6 +10,7 @@ app.post("/Push", async (req, res) => {
 
   const { name, date, value, teacherName, reason } = req.body;
   const findingDetails = await User.find({ RollNumber: req.body.name });
+  
   if(findingDetails.length > 0)
     {
         res.json({
