@@ -48,6 +48,7 @@ router.post("/Validate/:rollNo", async (req, res) => {
 
   // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.params.rollNo });
+  console.log(result);
 
   if (result.length > 0) {
     // console.log(result);
