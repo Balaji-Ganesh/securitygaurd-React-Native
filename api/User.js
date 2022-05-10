@@ -16,14 +16,14 @@ router.post("/Search", async (req, res) => {
   
   if (result.length > 0 && result[0].Type == 1) {
   
-      const filter = { RollNumber: req.body.data };
-      const update = { Type: -1 }; // -1 to hold the expiration.
+      // const filter = { RollNumber: req.body.data };
+      // const update = { Type: -1 }; // -1 to hold the expiration.
 
-      // `doc` is the document _before_ `update` was applied
-      await User.findOneAndUpdate(filter, update);
-      console.log(
-        "[INFO] Changed expiration of permission (1 -> -1) Successfully"
-      );
+      // // `doc` is the document _before_ `update` was applied
+      // await User.findOneAndUpdate(filter, update);
+      // console.log(
+      //   "[INFO] Changed expiration of permission (1 -> -1) Successfully"
+      // );
     
 
     
