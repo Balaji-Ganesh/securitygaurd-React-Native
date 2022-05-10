@@ -17,7 +17,7 @@ router.get("/Login", (req, res) => {
 
 // for getting a existing user...(for authentication purpose) based on
 router.post("/api/authenticate", async (request, response) => {
-    console.log(request.body)
+    // console.log(request.body)
   try {
     //Fetch the credentials from the database..
     const userCredentials = await Details.findOne({
