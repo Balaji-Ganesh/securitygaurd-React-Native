@@ -13,7 +13,20 @@ router.post("/Search", async (req, res) => {
   //     // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.body.data });
 
-  if (result.length > 0) {
+  
+  if (result.length > 0 && result[0].Type == 1) {
+  
+      const filter = { RollNumber: req.body.data };
+      const update = { Type: -1 }; // -1 to hold the expiration.
+
+      // `doc` is the document _before_ `update` was applied
+      await User.findOneAndUpdate(filter, update);
+      console.log(
+        "[INFO] Changed expiration of permission (1 -> -1) Successfully"
+      );
+    
+
+    
     res.json({
       status: "Success",
       Value: 1,
