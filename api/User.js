@@ -58,9 +58,10 @@ router.post("/Validate/:rollNo", async (req, res) => {
       const update = { Type: -1 }; // -1 to hold the expiration.
 
       // `doc` is the document _before_ `update` was applied
-      await User.findOneAndUpdate(filter, update, {
+      const doc = await User.findOneAndUpdate(filter, update, {
         new: true, 
       });
+      console.log(doc);
       console.log(
         "[INFO] Changed expiration of permission (1 -> -1) Successfully"
       );
