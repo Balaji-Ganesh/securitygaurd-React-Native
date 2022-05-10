@@ -55,6 +55,7 @@ router.post("/Validate/:rollNo", async (req, res) => {
     // Update the "Type", after scanned (for GatePass only)
     if (result[0].Type == 1) {
       // 1: GatePass, 0: LunchPass, -1: AlreadyScanned/Expired
+      console.log(req.body.data);
       const filter = { RollNumber: req.body.data };
       const update = { Type: -1 }; // -1 to hold the expiration.
 
