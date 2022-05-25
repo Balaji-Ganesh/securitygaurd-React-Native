@@ -20,7 +20,7 @@ const router = express.Router();
 // //getting student data
 router.post("/Search", async(req, res) => {
 
-  // console.log(req.body.name);
+  console.log(req.body.name);
 
   //     // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.body.data });
