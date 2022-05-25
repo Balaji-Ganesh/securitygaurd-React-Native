@@ -15,7 +15,7 @@ router.post("/Search", async (req, res) => {
 
   console.log(result);
   
-  if (result.length > 0 && result[0].Type == 1) {
+  if (result.length > 0 && (result[0].Type == 1 || result[0].Type == 1)) {
   
       // const filter = { RollNumber: req.body.data };
       // const update = { Type: -1 }; // -1 to hold the expiration.
