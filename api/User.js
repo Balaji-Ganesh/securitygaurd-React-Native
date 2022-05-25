@@ -24,6 +24,7 @@ router.post("/Search", async(req, res) => {
 
   //     // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.body.data });
+  console.log(result);
 
   if(result.length > 0)
   {
