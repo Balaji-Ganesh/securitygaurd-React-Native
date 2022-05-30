@@ -1,6 +1,10 @@
 const express = require("express");
+
+// const app = express();
 const User = require("./../models/User");
+
 const router = express.Router();
+
 
 // //getting student data
 router.post("/Search", async (req, res) => {
@@ -13,7 +17,7 @@ router.post("/Search", async (req, res) => {
     res.json({
       status: "Success",
       Value: 1,
-      // data : req.body.data
+      data: req.body.data,
     });
   } else {
     res.json({
@@ -23,6 +27,7 @@ router.post("/Search", async (req, res) => {
     });
   }
 });
+
 
 // //getting SINGLE student data <-- gate keeper requests on this route..
 router.post("/Validate/:rollNo", async (req, res) => {
@@ -80,4 +85,6 @@ router.get("/permissions", async (request, response) => {
     response.status(500).json("Sorry, Unable to retrieve permissions.");
   }
 });
+
+
 module.exports = router;
