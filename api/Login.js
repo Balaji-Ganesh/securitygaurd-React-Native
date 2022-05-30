@@ -26,23 +26,29 @@ router.post("/Login", async (req, res) => {
 
 // for getting a existing user...(for authentication purpose) based on
 router.post("/api/authenticate", async (request, response) => {
-    console.log(request.body)
+  console.log(request.body);
   try {
     //Fetch the credentials from the database..
     const userCredentials = await Details.findOne({
       Name: request.body.Name,
     });
+    console.log("[INFO] Received credentials from db: " + userCredentials);
     !userCredentials &&
       response.status(400).json("Incorrect Credentials, Please try again..!");
 
     // validate the password -- on successful user found..
-    const validationStatus = bcrypt.compare(
+    const validationStatus = await bcrypt.compare(
       request.body.password,
       userCredentials.Password
+      // (error, result) => {
+      //   if (error) console.log("ERROR: Passwords do not match");
+      //   else if (result) console.log("Result: " + result);
+      // }
     );
     !validationStatus &&
       response.status(400).json("Incorrect credentials, Please try again.!");
 
+    console.log("[INFO] validation status: " + validationStatus);
     console.log("[INFO] user login request served successfully.");
     // On successful password validation..
     // Pullout the password (Preventing the password to be leaked outside..)
