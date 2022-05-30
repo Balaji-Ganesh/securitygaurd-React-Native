@@ -12,8 +12,9 @@ const cors = require('cors');
 const UserRoute = require('./api/User');
 const Login = require('./api/Login');
 const Push = require('./api/Push');
-const Change = require('./api/Login1');
+const ChangePassword = require('./api/Login1');
 const DetailsRoute = require("./api/Details");
+const StudentLogin = require("./api/Slogin");
 
 const { options } = require('./api/User');
 
@@ -60,8 +61,9 @@ app.use((req, res, next) => {
 app.use('/',UserRoute);
 app.use('/',Login);
 app.use('/',Push);
-app.use('/',Change);
+app.use('/',ChangePassword);
 app.use("/api/Details", DetailsRoute);
+app.use('/',StudentLogin);
 
 
 

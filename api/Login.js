@@ -50,12 +50,15 @@ router.post("/api/authenticate", async (request, response) => {
 
 router.post("/Login",async(req,res)=>{
 
+
+  //admin will add all teachers with their roles so insertion of new data only checking if the techer exist or not which is added by admin only
+
    const data = await Details.find({Name:req.body.name});
   //  console.log(data);
-//    const hashpassword = data[0].Password;
-//    const userpassword = req.body.password;
+  //    const hashpassword = data[0].Password;
+   //    const userpassword = req.body.password;
 
-//     const resu = await bcrypt.compare(userpassword, hashpassword);
+  //     const resu = await bcrypt.compare(userpassword, hashpassword);
 
     if(data.length > 0)
     {
