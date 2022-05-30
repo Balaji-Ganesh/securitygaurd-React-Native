@@ -4,6 +4,10 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 
 const router = express.Router();
+
+router.get("/Slogin",(req,res)=>{
+    res.send("Studentlogin!!");
+})
 router.post("/Slogin", async (req, res) => {
 //   //admin will add all teachers with their roles so insertion of new data only checking if the techer exist or not which is added by admin only
 
