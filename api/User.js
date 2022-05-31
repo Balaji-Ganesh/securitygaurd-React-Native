@@ -20,6 +20,8 @@ router.post("/Search", async (req, res) => {
   if (result.length > 0 && result[0].NoOfInstance == 0) {
      
     //change no of instance to 1 i.e update
+    result[0].NoOfInstance == 1;
+    result.save();
 
     res.json({
       status: "Success",
