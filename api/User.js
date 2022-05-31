@@ -25,7 +25,7 @@ router.post("/Search", async (req, res) => {
 
    // `doc` is the document _after_ `update` was applied because of
    // `new: true`
-   let doc = await Character.findOneAndUpdate(filter, update, {
+   let doc = await User.findOneAndUpdate(filter, update, {
      new: true,
    });
 
