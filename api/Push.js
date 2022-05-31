@@ -28,7 +28,7 @@ app.post("/Push", async (req, res) => {
          Type: value,
          Name: teacherName,
          reason: reason,
-         NoOfInstance:0,
+         Instance:0,
        });
         const result = await users.save();
          res.json({
