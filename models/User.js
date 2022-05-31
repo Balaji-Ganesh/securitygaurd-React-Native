@@ -24,7 +24,7 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    NoOfInstance:{
+    Instances:{
       type:Number,
       required:true,
     }

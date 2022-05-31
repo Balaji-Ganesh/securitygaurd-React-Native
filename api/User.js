@@ -17,11 +17,19 @@ router.post("/Search", async (req, res) => {
   
 
   //if no of instance is equal to 0 then changed it to one and allow the student to search else don't allow
-  if (result.length > 0 && result[0].NoOfInstance == 0) {
+  if (result.length > 0 && result[0].Instances == 0) {
      
     //change no of instance to 1 i.e update
-    result[0].NoOfInstance == 1;
-    result.save();
+   const filter = { RollNumber: req.body.data };
+   const update = { Instances :1};
+
+   // `doc` is the document _after_ `update` was applied because of
+   // `new: true`
+   let doc = await Character.findOneAndUpdate(filter, update, {
+     new: true,
+   });
+
+   console.log(doc);
 
     res.json({
       status: "Success",
@@ -29,7 +37,7 @@ router.post("/Search", async (req, res) => {
       data: req.body.data,
     });
   } 
-  else if(result.length > 0 && result[0].NoOfInstance == 0){
+  else if(result.length > 0 && result[0].Instances == 1){
     res.json({
       Value: -1,
       status: "Another login Cannot be created",
