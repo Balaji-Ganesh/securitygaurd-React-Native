@@ -24,6 +24,10 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    NoOfInstance:{
+      type:Number,
+      required:true,
+    }
   },
   { timestamps: true }
 

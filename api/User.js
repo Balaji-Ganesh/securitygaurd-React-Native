@@ -15,25 +15,27 @@ router.post("/Search", async (req, res) => {
 
   // console.log(result);
   
-  if (result.length > 0 && (result[0].Type == 1 || result[0].Type == 0)) {
-  
-      // const filter = { RollNumber: req.body.data };
-      // const update = { Type: -1 }; // -1 to hold the expiration.
 
-      // // `doc` is the document _before_ `update` was applied
-      // await User.findOneAndUpdate(filter, update);
-      // console.log(
-      //   "[INFO] Changed expiration of permission (1 -> -1) Successfully"
-      // );
-    
+  //if no of instance is equal to 0 then changed it to one and allow the student to search else don't allow
+  if (result.length > 0 && result[0].NoOfInstance == 0) {
+     
+    //change no of instance to 1 i.e update
 
-    
     res.json({
       status: "Success",
       Value: 1,
       data: req.body.data,
     });
-  } else {
+  } 
+  else if(result.length > 0 && result[0].NoOfInstance == 0){
+    res.json({
+      Value: -1,
+      status: "Another login Cannot be created",
+      // message: "An error occured!!",
+    });
+
+  }
+  else {
     res.json({
       Value: 0,
       status: "FAILED TO FIND STUDENT",
