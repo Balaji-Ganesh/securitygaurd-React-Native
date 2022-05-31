@@ -5,7 +5,6 @@ const User = require("./../models/User");
 
 const router = express.Router();
 
-
 // //getting student data
 router.post("/Search", async (req, res) => {
   // console.log(req.body.name);
@@ -27,7 +26,6 @@ router.post("/Search", async (req, res) => {
     });
   }
 });
-
 
 // //getting SINGLE student data <-- gate keeper requests on this route..
 router.post("/Validate/:rollNo", async (req, res) => {
@@ -86,5 +84,16 @@ router.get("/permissions", async (request, response) => {
   }
 });
 
+// remove all the permissions (after admin takes the logs)
+router.delete("/permissions", async (request, response) => {
+  try {
+    await User.deleteMany(); // passing empty filter deletes alll the documents
+    console.log("[INFO] All permissions deleted successfully");
+    response.status(200).json("All Permissions deleted sucessfully");
+  } catch (error) {
+    console.log("[ERROR] Deleting all permissions failed due to: " + error);
+    response.status(500).json("Deleting all permissions failed.");
+  }
+});
 
 module.exports = router;
