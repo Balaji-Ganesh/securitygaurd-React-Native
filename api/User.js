@@ -87,7 +87,8 @@ router.get("/permissions", async (request, response) => {
 // remove all the permissions (after admin takes the logs)
 router.delete("/permissions", async (request, response) => {
   try {
-    await User.deleteMany(); // passing empty filter deletes alll the documents
+    const results = await User.deleteMany({ Type: { $not: { $eq: 0 } } }); // passing filter deletes that all the documents which are NOT Lunch passes
+    console.log(results)
     console.log("[INFO] All permissions deleted successfully");
     response.status(200).json("All Permissions deleted sucessfully");
   } catch (error) {
