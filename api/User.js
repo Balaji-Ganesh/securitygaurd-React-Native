@@ -14,9 +14,11 @@ router.post("/Search", async (req, res) => {
 
   //     // seraching the data of the student in database
   const result = await User.find({ RollNumber: req.body.data });
-  console.log(result);
+  // console.log(result);
 
   // console.log(result);
+
+  
   
 
   //if no of instance is equal to 0 then changed it to one and allow the student to search else don't allow
@@ -42,8 +44,8 @@ router.post("/Search", async (req, res) => {
   } 
   else if(result.length > 0 && result[0].Instances == 1){
     res.json({
-      Value: -1,
-      status: "Another login Cannot be created",
+      Value: 1,
+      // status: "Another login Cannot be created",
       // message: "An error occured!!",
     });
 
