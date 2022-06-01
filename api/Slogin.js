@@ -31,18 +31,34 @@ router.post("/Slogin", async (req, res) => {
 //   }
 
   const securePassword = await bcrypt.hash(req.body.password, 10);
-  const login = new Details({
-       Name : req.body.name,
-       Password : securePassword,
-       role:"Student",
-  })
+  const ans = await Details.find({ Name: req.body.name });
+  console.log(ans);
 
-  const result = await login.save();
-  res.json({
-      Status:"Data Added to the DB!!",
-      value:1,
+  if(ans.length > 0)
+  {
 
-  })
+ res.json({
+   Value: -1,
+   status: "Another login Cannot be created",
+   // message: "An error occured!!",
+ });
+
+  }
+  else{
+    const login = new Details({
+      Name: req.body.name,
+      Password: securePassword,
+      role: "Student",
+    });
+
+    const result = await login.save();
+    res.json({
+      Status: "Data Added to the DB!!",
+      value: 1,
+    });
+
+  }
+  
 });
 
 module.exports = router;
